@@ -16,6 +16,14 @@ resource "azurerm_kubernetes_cluster" "demo-cluster" {
   }
 }
 
+output "sp_client_id" {
+  value = azuread_service_principal.aks-demo.id
+}
+
+output "sp_client_secret" {
+  value = random_password.aks-demo-sp-password.result
+}
+
 output "client_certificate" {
   value = azurerm_kubernetes_cluster.demo-cluster.kube_config.0.client_certificate
 }

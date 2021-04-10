@@ -88,20 +88,6 @@ resource "azurerm_network_security_group" "tf-guide-sg" {
     destination_address_prefix = "*"
   }
 
-# For ss
-  security_rule {
-    name                       = "SS"
-    priority                   = 102
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "8900"
-    source_address_prefix      = "${var.source_network}"
-    destination_address_prefix = "*"
-  }
-}
-
 # A network interface. This is required by the azurerm_virtual_machine 
 # resource. Terraform will let you know if you're missing a dependency.
 resource "azurerm_network_interface" "tf-guide-nic" {

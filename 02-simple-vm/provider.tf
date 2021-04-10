@@ -13,10 +13,9 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "myTFResourceGroup"
+  name     = "mytest-rg-1"
   location = "westus2"
 }
-
 
 # Create a virtual network
 resource "azurerm_virtual_network" "vnet" {

@@ -1,7 +1,7 @@
 variable "admin_username" {
     type = string
     description = "Administrator user name for virtual machine"
-    default = "zhaohui"
+    default = "admin_user"
 }
 
 variable "admin_password" {
@@ -72,7 +72,7 @@ resource "azurerm_virtual_machine" "vm" {
     name              = "myOsDisk"
     caching           = "ReadWrite"
     create_option     = "FromImage"
-    managed_disk_type = "Premium_LRS"
+    managed_disk_type = "Standard_LRS"
   }
 
   storage_image_reference {
