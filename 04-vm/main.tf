@@ -15,12 +15,20 @@ provider "azurerm" {
   version = "=1.44.0"
 }
 
+resource "random_string" "random-name" {
+  length  = 4
+  upper   = false
+  lower   = true
+  number  = true
+  special = false
+}
+
 # First we'll create a resource group. In Azure every resource belongs to a 
 # resource group. Think of it as a container to hold all your resources. 
 # You can find a complete list of Azure resources supported by Terraform here:
 # https://www.terraform.io/docs/providers/azurerm/
 resource "azurerm_resource_group" "tf_azure_guide" {
-  name     = "${var.prefix}-${var.resource_group}"
+  name     = "${var.prefix}-${var.resource_group}-${random_string.random-name.result}"
   location = "${var.location}"
 }
 
@@ -87,6 +95,7 @@ resource "azurerm_network_security_group" "tf-guide-sg" {
     source_address_prefix      = "${var.source_network}"
     destination_address_prefix = "*"
   }
+}
 
 # A network interface. This is required by the azurerm_virtual_machine 
 # resource. Terraform will let you know if you're missing a dependency.

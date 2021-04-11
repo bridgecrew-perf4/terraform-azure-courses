@@ -12,8 +12,12 @@ provider "azurerm" {
   features {}
 }
 
+resource "random_id" "id" {
+  byte_length = 4
+}
+
 resource "azurerm_resource_group" "rg" {
-  name     = "mytest-rg-1"
+  name     = "mytest-rg-${random_id.id.hex}"
   location = "westus2"
 }
 
