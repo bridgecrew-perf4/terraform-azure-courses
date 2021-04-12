@@ -19,6 +19,7 @@ Please understand how to run terrafrom from below refernece links
 4. create VM and run init script
 5. create kubernete cluster
 6. run terragrunt with module and remote git source
+7. create one service principal
 
 ## Reference
 

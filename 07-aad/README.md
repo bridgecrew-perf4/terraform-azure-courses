@@ -1,0 +1,1 @@
+These terraform scripts create one service principal in Azure
